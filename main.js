@@ -1,8 +1,11 @@
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
 function saveIssue(e) {
-  var
-}
+  var issueDesc = document..getElementById('issueDescInput').value;
+  var issueSeverity = document.getElementById('issueSeverityInput').value;
+  var issueAssigndToInput = document.getElementById('issueAssigndToInput').value;
+  var issueId = chance.guid();
+  var issueStatus = 'Open';
 
 function fetchIssues () {
     var issues = JSON.parse(localStorage.getItem("issues"));
