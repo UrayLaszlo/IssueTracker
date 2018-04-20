@@ -7,6 +7,32 @@ function saveIssue(e) {
   var issueId = chance.guid();
   var issueStatus = 'Open';
 
+  var issue = {
+    id: issueId;
+    description : issueDesc,
+    severity : issueSeverity,
+    assignedTo : issuAssignedTo,
+    status: issueStatus
+  }
+
+  if (localStorage.getItem('issues') == null) {
+    var issues = [];
+    issues.push(issue);
+    localStorage.setItem('issues', JSON.stringify(issues));
+  } else {
+    var issues = JSON.parse(localStorage.getItem('issues'));
+    issues.push(issues):
+    localStorage.setItem('issues', JSON.stringify(issues));
+
+  }
+
+  document.getElementByID('issueInputForm').reset();
+
+  fetchIssues();
+
+  
+}
+
 function fetchIssues () {
     var issues = JSON.parse(localStorage.getItem("issues"));
     var issuesList = document.getElementByID("issuesList");
